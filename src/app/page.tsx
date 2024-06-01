@@ -1,113 +1,122 @@
+"use client";
+
+import { projectsData, skillData } from "@/lib/types";
+import { animate, motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+      <section>
+        <div className="flex items-center justify-center min-h-[60vh] space-x-10">
+          {/* <motion.div initial={{opacity: 0, scale: 0}} animate={{opacity:1, scale: 1}} transition={{type:"tween", duration: 0.2,}}>
+            <Image src= "/userimage.jpg" alt="" width={192} height={192} quality={95} className="h-24 w-24 rounded-full border-[0.35rem] border-white object-cover shadow-xl" />
+          </motion.div> */}
+          <div className="space-y-10">
+            <h1 className="text-white lg:text-6xl font-bold">
+              Nice to meet you! 
+              <br /><span className="lg:text-5xl">{"I am BOHAN HUANG."}</span>
+            </h1>
+            <Link href={"mailto:bohanhuang07@gmail.com"} className="inline-block text-white font-bold text-2xl">
+              <div>
+                <h1 className="text-2xl font-bold">Contact Me</h1>
+                <div className="w-full h-2 bg-[#6c3dff] rounded-full "></div>
+                <div className="w-full h-2 bg-white rounded-full translate-x-2"></div>
+              </div>
+            </Link>
+          </div>
+          <div>
+            <div className="w-72 h-72 space-y-3">
+              <div className="flex gap-3 translate-x-8">
+                <motion.div className="w-32 h-32 rounded-xl bg-[#5429d9]"
+                whileHover={{ scale: 1.2, rotate: 90 }}
+                whileTap={{
+                  scale: 0.8,
+                  rotate: -90,
+                  borderRadius: "100%"
+                }}></motion.div>
+                <motion.div className="w-32 h-32 rounded-2xl bg-black"
+                whileHover={{ scale: 1.1, rotate: 90 }}
+                whileTap={{
+                  scale: 0.8,
+                  rotate: 180,
+                  borderRadius: "100%"
+                }}></motion.div>
+
+              </div>
+              <div className="flex gap-3 translate-x-">
+                <motion.div className="w-32 h-32 rounded-xl bg-white" whileHover={{rotate: 180, scaleY: 0.9}}></motion.div>
+                <motion.div className="w-32 h-32 rounded-2xl bg-[#a186f5]"
+                whileHover={{ scale: 0.8, rotate: 90 }}
+                whileTap={{
+                  scale: 1,
+                  rotate: 180,
+                  borderRadius: "100%"
+                }}></motion.div>
+                <motion.div className="w-12 h-32 rounded-2xl bg-[#94a3b8]"
+                whileHover={{scaleY: 0.6}}></motion.div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      </section>
+      <motion.section className="mt-28 mb-28 max-w-[45rem] text-center leading-8 sm:mb-40 scroll-mt-28" initial={{opacity:0, y:100}} animate={{opacity:1, y: 0}} transition={{delay:0.175}} id="about">
+        <h2 className="text-3xl font-medium capitalize mb-8">About Me</h2>
+        <p className="mb-3">
+          Hello! Welcome to my page. My name is BOHAN HUANG. I am a 1st master student now and trying to become a software engineer.
+        </p>
+        <p>
+          My experience contains application(frontend and backend), deep learning mainly about computer vision, and learning ROS when I was a undergraduate student. Browse this website to learn more! 
+        </p>
+      </motion.section>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <motion.section className="mb-28 max-w-[45rem] text-center leading-8 sm:mb-40" initial={{opacity:0, y:100}} animate={{opacity:1, y: 0}} transition={{delay:0.175}} id="projects">
+        <h2 className="text-3xl font-medium capitalize mb-8">Projects</h2>
+        <div>
+           {projectsData.map((project, index) => (
+            <React.Fragment key={index}>
+              <Project {...project}/>
+            </React.Fragment>
+           ))}
+        </div>
+      </motion.section>
+      <motion.section className="mb-28 max-w-[45rem] text-center leading-8 sm:mb-40" initial={{opacity:0, y:100}} animate={{opacity:1, y: 0}} transition={{delay:0.175}} id="skills">
+        <h2 className="text-3xl font-medium capitalize mb-8 ">Skills</h2>
+            <ul className="flex flex-wrap justify-center gap-2 text-lg text-white">
+              {
+                skillData.map((skill, index) => (
+                  <motion.li className="bg-[#6454f5] border border-white rounded-xl py-3 px-5 shadow-lg" key={index} 
+                  initial={{opacity: 0, y:100}} whileInView={{opacity:1, y: 0, transition: {delay: index * 0.05}}} viewport={{once: true}} >
+                    {skill}
+                  </motion.li>
+                ))
+              }
+            </ul>
+      </motion.section>
     </main>
   );
+}
+
+type ProjectProps = (typeof projectsData)[number];
+
+function Project({title, description, tags, imageUrl}: ProjectProps) {
+  return (
+    <section className="bg-gray-100 max-w-[42rem] border border-black/5 overflow-hidden sm:pr-8 relative sm:h-[22rem] mb-3 sm:mb-8 last:mb-0">
+
+      <div className="pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full gap-3">
+        <h3 className="text-2xl font-semibold">{title}</h3>
+        <p className="mt-2 leading-relaxed">{description}</p>
+        <ul className="flex flex-wrap mt-4 gap-2 sm:mt-auto">
+          {tags.map((tag, index) => (
+            <li className="bg-[#578feb] px-2 py-1 text-[0.7rem] uppercase tracking-wider rounded-full text-white" key={index}>{tag}</li>
+          ))}
+        </ul>
+      </div>
+
+      <Image src={imageUrl} alt="" width={200} height={400} quality={95} className="absolute top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl"/>
+    </section>
+  )
 }
