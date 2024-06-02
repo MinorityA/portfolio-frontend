@@ -13,7 +13,7 @@ import { options } from "../api/auth/[...nextauth]/options";
 
 
 export default function BlogPage({initialPosts}) {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+    // const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
     // const [posts, setPosts] = useState<FPost[]>([]);
     const [posts, setPosts] = useState(initialPosts);
     const [newPost, setNewPost] = useState({ title: '', content: ''});
