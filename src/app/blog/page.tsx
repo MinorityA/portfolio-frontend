@@ -12,9 +12,10 @@ import { getServerSession } from "next-auth";
 import { options } from "../api/auth/[...nextauth]/options";
 
 
-export default function BlogPage() {
+export default function BlogPage({initialPosts}) {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
-    const [posts, setPosts] = useState<FPost[]>([]);
+    // const [posts, setPosts] = useState<FPost[]>([]);
+    const [posts, setPosts] = useState(initialPosts);
     const [newPost, setNewPost] = useState({ title: '', content: ''});
     const [updatePost, setUpdatePost] = useState({id: '', title: '', content:'' });
 
@@ -67,4 +68,23 @@ export default function BlogPage() {
       </main>
       // </SessionProvider>
     );
+}
+// Fetch data on the server side
+export async function getServerSideProps() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+  try {
+    const response = await axios.get(`${apiUrl}/blogs`);
+    return {
+      props: {
+        initialPosts: response.data.data.reverse(),
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return {
+      props: {
+        initialPosts: [],
+      },
+    };
+  }
 }
