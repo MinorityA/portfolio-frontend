@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { SessionProvider, useSession } from "next-auth/react";
 import { getServerSession } from "next-auth";
 import { options } from "../api/auth/[...nextauth]/options";
-
+export const dynamic = 'auto'
 
 export default async function BlogPage() {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
@@ -47,7 +47,8 @@ export default async function BlogPage() {
       <main className="flex min-h-screen flex-col p-24 m-2">
         {/* <div className="text-lg p-4 font-bold">BlogPage</div> */}
         
-        {/* <div className={!session ? 'hidden' : ''}>
+        {/* <div className={!session ? 'hidden' : ''}> */}
+        {/* <div>
         <Button asChild variant="outline" className="m-auto">
           <Link href="/blog/newblog">New Post</Link>
         </Button>
